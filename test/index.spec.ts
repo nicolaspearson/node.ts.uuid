@@ -11,7 +11,7 @@ describe('Uuid Tests', () => {
 		const uuid: string = Uuid.generate(options);
 		console.log(uuid);
 		expect(uuid).toBeDefined();
-		expect(uuid.length).toEqual(36);
+		expect(uuid.length).toEqual(50);
 		done();
 	});
 });

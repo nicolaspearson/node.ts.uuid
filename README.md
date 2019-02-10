@@ -38,7 +38,7 @@ export function getUuid() {
 }
 ```
 
-Will generate a uuid similar to: ``
+Will generate a uuid similar to: `test-6xke0ccwg0k00emrjrz81gu8a63657918908addf9942c`
 
 ### Methods
 
