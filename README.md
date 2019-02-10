@@ -42,4 +42,25 @@ Will generate a uuid similar to: `test-6xke0ccwg0k00emrjrz81gu8a63657918908addf9
 
 ### Methods
 
+**generate(options?: UuidOptions)**
+
+Generates a UUID using the IPv6 / Mac Address, the process id, and the current time. Optionally add a prefix, and limit / pad the uuid to be a specific length.
+
+**getPid()**
+
+Returns the running process id or a randomly generated 5 digit number.
+
+**getAddress()**
+
+Returns the MAC Address or IPv6 Address, if neither are available a randomly generated 8 digit number is returned.
+
+**getNow()**
+
+Returns the current epoch time or the previously
+returned epoch time incremented by 1.
+
+**postProcessUuid(uuid: string, length?: number)**
+
+Pads / limits the length of the provided uuid if the length is shorter than desired a bitwise operation provides the randomly generated characters.
+
 ### Options

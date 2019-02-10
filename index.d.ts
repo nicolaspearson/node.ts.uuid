@@ -37,6 +37,7 @@ declare class Uuid {
 	 * @returns number
 	 */
 	public static getNow(): number;
+
 	/**
 	 * Pads / limits the length of the provided uuid
 	 * if the length is shorter than desired a bitwise
