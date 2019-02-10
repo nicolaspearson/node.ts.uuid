@@ -83,7 +83,6 @@ class Uuid {
 		const time = Date.now();
 		const last = this.lastTime || time;
 		this.lastTime = time > last ? time : last + 1;
-		console.log(this.lastTime);
 		return this.lastTime;
 	}
 
