@@ -64,3 +64,13 @@ returned epoch time incremented by 1.
 Pads / limits the length of the provided uuid if the length is shorter than desired a bitwise operation provides the randomly generated characters.
 
 ### Options
+
+```
+UuidOptions {
+	length?: number;
+	prefix?: string;
+}
+```
+
+- Length: Pad / Limit the length of the uuid.
+- Prefix: Add a prefix to the uuid.

@@ -12,6 +12,7 @@ describe('Uuid Tests', () => {
 		console.log(uuid);
 		expect(uuid).toBeDefined();
 		expect(uuid.length).toEqual(50);
+		expect(uuid).toContain('test-');
 		done();
 	});
 });
