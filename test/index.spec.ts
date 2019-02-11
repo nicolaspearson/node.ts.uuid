@@ -19,7 +19,7 @@ describe('Uuid Tests', () => {
 		expect(Uuid.generate).toBeDefined();
 		const pid: number = Uuid.getPid();
 		expect(pid).toBeDefined();
-		expect(pid.toString().length).toEqual(5);
+		expect(pid.toString().length).toBeGreaterThanOrEqual(2);
 		done();
 	});
 
