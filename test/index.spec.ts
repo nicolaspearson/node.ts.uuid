@@ -27,7 +27,7 @@ describe('Uuid Tests', () => {
 		expect(Uuid.generate).toBeDefined();
 		const address: number = Uuid.getAddress();
 		expect(address).toBeDefined();
-		expect(address.toString().length).toEqual(19);
+		expect(address.toString().length).toBeGreaterThanOrEqual(8);
 		done();
 	});
 
