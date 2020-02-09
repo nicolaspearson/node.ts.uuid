@@ -11,6 +11,7 @@ tsconfig.json
 *.png
 .editorconfig
 .prettierrc
+renovate.json
 tslint.json
 test
 *.config.js
