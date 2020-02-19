@@ -33,7 +33,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@types/jest": "~25.1.2",
-		"@types/node": "~13.7.0",
+		"@types/node": "~13.7.4",
 		"@types/temp": "~0.8.34",
 		"jest": "~25.1.0",
 		"jest-coverage-badges": "~1.1.2",
