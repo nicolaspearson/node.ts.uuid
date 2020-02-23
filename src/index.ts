@@ -68,6 +68,11 @@ class Uuid {
 		return address;
 	}
 
+	/**
+	 * Returns the ipv6 numbers.
+	 *
+	 * @returns number[]
+	 */
 	public static getIpV6(netInterface: os.NetworkInterfaceInfo): number[] {
 		return netInterface.address
 			.slice(6)
