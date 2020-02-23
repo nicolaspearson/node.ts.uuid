@@ -1,3 +1,5 @@
+import * as os from 'os';
+
 import { Uuid, UuidOptions } from '../src/index';
 
 const options: UuidOptions = {
@@ -31,6 +33,17 @@ describe('Uuid Tests', () => {
 		done();
 	});
 
+	it('should be able to get the ipv6 address from the network interface', async (done) => {
+		expect(Uuid.generate).toBeDefined();
+		const networkInterfaces = os.networkInterfaces();
+		for (const key in networkInterfaces) {
+			const netInterface: os.NetworkInterfaceInfo[] = networkInterfaces[key];
+			const ipv6: number[] = Uuid.getIpV6(netInterface![0]);
+			expect(ipv6[0]).toBeGreaterThanOrEqual(0);
+		}
+		done();
+	});
+
 	it('should be able to get the current epoch time', async (done) => {
 		expect(Uuid.generate).toBeDefined();
 		const time: number = Uuid.getNow();
@@ -61,6 +74,18 @@ describe('Uuid Tests', () => {
 
 		uuid = Uuid.postProcessUuid(uuid, 80);
 		expect(uuid.length).toEqual(80);
+		done();
+	});
+
+	it('should be able to keep the length of the uuid', async (done) => {
+		expect(Uuid.generate).toBeDefined();
+		let uuid: string = Uuid.generate(options);
+		expect(uuid).toBeDefined();
+		expect(uuid.length).toEqual(50);
+		expect(uuid).toContain('test-');
+
+		uuid = Uuid.postProcessUuid(uuid);
+		expect(uuid.length).toEqual(50);
 		done();
 	});
 });

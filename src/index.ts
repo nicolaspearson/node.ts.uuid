@@ -57,20 +57,24 @@ class Uuid {
 					break interfaceLoop;
 				} else if (!netInterface[i].internal && netInterface[i].address.indexOf('fe80::') === 0) {
 					// Using IPv6 Address
-					const ip6: number[] = netInterface[i].address
-						.slice(6)
-						.split(/:/)
-						.map((value: string) => {
-							return parseInt(value, 16);
-						});
-					if (ip6 && ip6.length > 1) {
-						address = Number(ip6.join(''));
+					const ipv6 = this.getIpV6(netInterface[i]);
+					if (ipv6 && ipv6.length > 1) {
+						address = Number(ipv6.join(''));
 						break interfaceLoop;
 					}
 				}
 			}
 		}
 		return address;
+	}
+
+	public static getIpV6(netInterface: os.NetworkInterfaceInfo): number[] {
+		return netInterface.address
+			.slice(6)
+			.split(/:/)
+			.map((value: string) => {
+				return parseInt(value, 16);
+			});
 	}
 
 	/**
