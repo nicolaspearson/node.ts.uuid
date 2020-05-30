@@ -37,7 +37,7 @@ describe('Uuid Tests', () => {
 		expect(Uuid.generate).toBeDefined();
 		const networkInterfaces = os.networkInterfaces();
 		for (const key in networkInterfaces) {
-			const netInterface: os.NetworkInterfaceInfo[] = networkInterfaces[key];
+			const netInterface: os.NetworkInterfaceInfo[] | undefined = networkInterfaces[key];
 			const ipv6: number[] = Uuid.getIpV6(netInterface![0]);
 			expect(ipv6[0]).toBeGreaterThanOrEqual(0);
 		}

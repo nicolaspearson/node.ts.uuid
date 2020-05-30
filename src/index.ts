@@ -49,18 +49,20 @@ class Uuid {
 		const networkInterfaces = os.networkInterfaces();
 		interfaceLoop: for (const key in networkInterfaces) {
 			const netInterface = networkInterfaces[key];
-			const length = netInterface.length;
-			for (let i = 0; i < length; i++) {
-				if (netInterface[i].mac && netInterface[i].mac !== '00:00:00:00:00:00') {
-					// Using Mac Address
-					address = Number(netInterface[i].mac.replace(/\:|\D+/gi, ''));
-					break interfaceLoop;
-				} else if (!netInterface[i].internal && netInterface[i].address.indexOf('fe80::') === 0) {
-					// Using IPv6 Address
-					const ipv6 = this.getIpV6(netInterface[i]);
-					if (ipv6 && ipv6.length > 1) {
-						address = Number(ipv6.join(''));
+			if (netInterface) {
+				const length = netInterface.length;
+				for (let i = 0; i < length; i++) {
+					if (netInterface[i].mac && netInterface[i].mac !== '00:00:00:00:00:00') {
+						// Using Mac Address
+						address = Number(netInterface[i].mac.replace(/\:|\D+/gi, ''));
 						break interfaceLoop;
+					} else if (!netInterface[i].internal && netInterface[i].address.indexOf('fe80::') === 0) {
+						// Using IPv6 Address
+						const ipv6 = this.getIpV6(netInterface[i]);
+						if (ipv6 && ipv6.length > 1) {
+							address = Number(ipv6.join(''));
+							break interfaceLoop;
+						}
 					}
 				}
 			}
