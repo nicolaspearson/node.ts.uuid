@@ -11,6 +11,10 @@
 
 A simple uuid generator. The generator uses the MAC address / IPv6 address + the process id + the current time to ensure a unique id is generated. The length of the uuid can be specified, this will either increase or decrease the number of characters in the uuid. If the uuid needs to be padded to create a longer uuid, a bitwise operation is used to generate the unique characters. A prefix may also specified.
 
+## Notice (Deprecated)
+
+The source code for this library has been moved to: [Kalos](https://github.com/nicolaspearson/kalos/tree/main/packages/node-ts-uuid).
+
 ## Test Coverage
 
 ![Coverage lines](https://raw.githubusercontent.com/nicolaspearson/node.ts.uuid/master/coverage/badge-lines.svg?sanitize=true)
